@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        hello!
+        <span th:text="${username}">马云</span>
+        <span th:text="VIP+${username}">马云</span>
+        <span th:text="|VIP,${username}|">马云</span>
+
+        <hr/>
+        name:<span th:text="${teacher.name}">zhangsan</span>
+        age:<span th:text="${teacher.age}">22</span>
+
+        <hr/>
+        <table>
+            <tr>
+                <td>name</td>
+                <td>age</td>
+                <td>status</td>
+            </tr>
+            <tr th:each="teacher : ${list}">
+                <td th:text="${teacher.name}">name</td>
+                <td th:text="${teacher.age}">age</td>
+                <td th:text="${teacher.age>35}?'太老了':'too young too simple'">当打之年</td>
+            </tr>
+        </table>
+
+        <hr/>
+        <span th:text="${#dates.format(now,'yyyy-MM-dd HH:mm:ss')}"></span>
+</body>
+</html>
